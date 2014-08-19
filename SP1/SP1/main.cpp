@@ -91,7 +91,7 @@ int main()
 					}
 					else if (map[a] [b] == 'V')
 					{
-						map[a] [b] == ' ';
+						map[a] [b] = ' ';
 					}
 					break;//Code for player bullet end here
 				}
