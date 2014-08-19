@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{76A36B1D-F342-42D4-90EE-E74123B6869D}</ProjectGuid>
+    <ProjectGuid>{1A587CA1-7340-416F-94D6-7C400A833946}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SP1</RootNamespace>
+    <RootNamespace>SP1Framework</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -54,6 +54,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,7 +75,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\console.cpp" />
+    <ClCompile Include="Framework\timer.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Framework\console.h" />
+    <ClInclude Include="Framework\timer.h" />
+    <ClInclude Include="game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

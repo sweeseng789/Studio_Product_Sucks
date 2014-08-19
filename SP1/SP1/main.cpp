@@ -6,10 +6,10 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-char map [20] [20] = {
-	"*******************",
-	"*                 *",
-	"*   V V V V V V   *",
+char map [20] [40] = {
+	"**************************************",
+	"*                                    *",
+	"*   V V V V V V                      *",
 	"*    V V V V V    *",
 	"*     V V V V     *",
 	"*      V V V      *",
