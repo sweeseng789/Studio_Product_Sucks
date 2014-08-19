@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h> //For cls
+#include <time.h>
 
 using std::cin;
 using std::cout;
@@ -42,13 +43,25 @@ int main()
 			cout << map[a] << endl;
 		}//cout map code ends here
 
+		int bullet = 0;//Bullet count starts here
+		for (int c = 0; c < 20; c++)
+		{
+			for (int d = 0; d < 20; d++)
+			{
+				if (map[c] [d] == '^')
+				{
+					bullet++;
+				}
+			}
+		}//BUllet count stops here
+
 		for (int a = 0; a < 20; a++)
 		{
 			for (int b = 0; b < 20; b++)
 			{
 				switch (map[a] [b])
 				{
-				case 'A': if (GetAsyncKeyState(VK_LEFT) != 0) //Code to move left
+				case 'A': if (GetAsyncKeyState(VK_LEFT) != 0 && GetAsyncKeyState(VK_SPACE) == 0) //Code to move left
 						  {
 							  int b2 = b-1;
 							  switch (map[a] [b2])
@@ -61,7 +74,7 @@ int main()
 							  }
 						  } //Code to move left ends here
 
-						  if (GetAsyncKeyState(VK_RIGHT) != 0) // Code to move right
+						  if (GetAsyncKeyState(VK_RIGHT) != 0 && GetAsyncKeyState(VK_SPACE) == 0) // Code to move right
 						  {
 							  int b2 = b+1;
 							  switch (map[a] [b2])
@@ -74,13 +87,13 @@ int main()
 							  }
 						  } //Code to move right end here
 
-						  if (GetAsyncKeyState(VK_SPACE) != 0)
+
+						  if (GetAsyncKeyState(VK_SPACE)!= 0 && bullet == 0)//Limit bullet shot
 						  {
 							  a--;
-							  map[a] [b] = '^'; //Code for shooting only 1 player bullet
+							  map[a] [b] = '^'; //Code for shooting only 1 player bullet 
 						  }
 						  break;
-
 				case '^': //Code for shooting player bullet
 					map[a] [b] = ' ';
 					a--;
@@ -92,7 +105,9 @@ int main()
 					else if (map[a] [b] == 'V')
 					{
 						map[a] [b] = ' ';
+
 					}
+		
 					break;//Code for player bullet end here
 				}
 			}
